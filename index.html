@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+<form action="validi" method="post" id="myForm">
+
+
+   <label for="username">Nom</label>
+   <input type="text" name="username" id="username">
+   <span id="NOMERO"></span>
+   
+   <br>
+   <br>
+   <br>
+
+
+    <label for="username">Prenom</label>
+    <input type="text" name="username" id="PRENO">
+    <span id="PRENOMERO"></span>
+   
+    <br>
+    <br>
+    <br>
+
+ 
+    <label for="username">Telephone</label>
+    <input  type="text" name="username" id="TEELE">
+    <span id="TELEERO"></span>
+    
+    <br>
+    <br>
+    <br>
+
+    <label for="username">Prix</label>
+    <input  type="text" name="username" id="PRIXERO">
+    <span id="TELEERO"></span>
+    
+    <br>
+    <br>
+    <br>
+
+    <label for="username">Date</label>
+    <input type="date" name="username" id="DATEE">
+    <span id="DATEERO"></span>
+
+    <br>
+    <br>
+   
+
+    <select id="mySelect" onchange="myFunction()">
+        <option value="">FRANCAIS</option>
+        <option value="">ARAB</option>
+      </select>
+
+      <br>
+      <br>
+
+      <button type="submit">click</button>
+
+
+ </form>
+
+
+
+
+<script>
+  
+
+
+ var myForm = document.getElementById('myForm')
+         myForm.addEventListener('submit', function(event){
+            event.preventDefault();
+
+            var myInput = document.getElementById('username');
+            var mypreno = document.getElementById('PRENO');
+            var mytele = document.getElementById('TEELE');
+            var mydate = document.getElementById('DATEE');
+            var myprix = document.getElementById('DATEE');
+            var myRegex = /^[a-zA-Z-\s]+$/;
+            var myRNUM = /^[0-9-\s]+$/;
+ 
+
+                 /** nom **/
+
+
+        if (myInput.value.trim() == "" ){
+            var NOMER = document.getElementById('NOMERO');
+            NOMER.innerHTML = 'le champs username est requis.';
+            NOMER.style.color = 'red';
+              event.preventDefault();
+        }else if (myRegex.test(myInput.value) == false ) {
+            var NOMER = document.getElementById('NOMERO');
+            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.style.color = 'red';
+              event.preventDefault()
+        }
+        else{
+            var NOMER = document.getElementById('NOMERO');
+            NOMER.innerHTML = 'good.';
+            NOMER.style.color = 'green';
+        }
+
+
+
+              /** prenom **/
+
+
+
+    if (mypreno.value.trim() == "" ){
+            var NOMER = document.getElementById('PRENOMERO');
+            NOMER.innerHTML = 'le champs username est requis.';
+            NOMER.style.color = 'red';
+              event.preventDefault();
+        }else if (myRegex.test(mypreno.value) == false ) {
+            var NOMER = document.getElementById('PRENOMERO');
+            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.style.color = 'red';
+            event.preventDefault()
+        }
+        else{
+            var NOMER = document.getElementById('PRENOMERO');
+            NOMER.innerHTML = 'good.';
+            NOMER.style.color = 'green';
+        }
+
+
+
+    
+               /** telephone **/
+
+
+    if (mytele.value.trim() == "" ){
+            var NOMER = document.getElementById('TELEERO');
+            NOMER.innerHTML = 'le champs username est requis.';
+            NOMER.style.color = 'red';
+              event.preventDefault();
+        }else if (myRNUM.test(mytele.value) == false ) {
+            var NOMER = document.getElementById('TELEERO');
+            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.style.color = 'red';
+              event.preventDefault()
+        }
+        else{
+            var NOMER = document.getElementById('TELEERO');
+            NOMER.innerHTML = 'good.';
+            NOMER.style.color = 'green';
+        }
+
+                    /** prix **/
+
+         if (myprix.value.trim() == "" ){
+            var NOMER = document.getElementById('PRIXERO');
+            NOMER.innerHTML = 'le champs username est requis.';
+            NOMER.style.color = 'red';
+              event.preventDefault();
+        }
+        else if (myRNUM.test(myprix.value <0)) {
+            var NOMER = document.getElementById('PRIXERO');
+            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.style.color = 'red';
+              event.preventDefault()
+        } 
+        
+        else {
+            var NOMER = document.getElementById('PRIXERO');
+            NOMER.innerHTML = 'good.';
+            NOMER.style.color = 'green';
+        }
+    
+
+     
+
+    
+                /** date **/
+
+
+    if (mydate.value.trim() == "" ){
+            var NOMER = document.getElementById('DATEERO');
+            NOMER.innerHTML = 'le champs username est requis.';
+            NOMER.style.color = 'red';
+              event.preventDefault();
+        }else if (myRNUM.test(mydate.value) == false ) {
+            var NOMER = document.getElementById('DATEERO');
+            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.style.color = 'red';
+              event.preventDefault()
+        }
+        else{
+            var NOMER = document.getElementById('DATEERO');
+            NOMER.innerHTML = 'good.';
+            NOMER.style.color = 'green';
+        }
+
+        function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  document.getElementById("demo").innerHTML = "You selected: " + x;
+  
+}
+
+    })
+
+
+
+</script>
+
+
+</body>
+</html>
