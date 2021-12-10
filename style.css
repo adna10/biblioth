@@ -1,3 +1,111 @@
-label{
-    margin-top: 20px;
+*{
+    margin: 2%;
+    padding: 0px;
 }
+body{
+   
+    padding: 0px;
+    background-image: url(building.jpg);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    
+}
+h1{
+    color: rgba(236, 180, 58, 0.808);
+    text-align: center;
+}
+#body50{
+   
+    background-image: url(IMG.jpg);
+   
+    margin: 60px;
+    margin-left: 260px;
+    width: 570px;
+     height: auto;
+     border-radius: 10px;
+     border-color: cyan;
+     border-width: 4px;
+    
+    
+    
+}
+.RAT{
+    padding-left: 5%;
+    padding-top:12%;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.RAT button{
+    width: 250px;
+    height: 30px;
+    MARGIN-LEFT: 17%;
+}
+
+
+
+    
+
+#username{
+    border-color: rgba(80, 46, 1, 0.808);
+    border-radius: 4px;
+    border-width: 2px;
+    width: 250px;
+    height: 30px;
+        
+
+}
+#PRENO{
+    border-color: rgba(80, 46, 1, 0.808);
+    border-radius: 4px;
+    border-width: 2px;
+    width: 250px;
+    height: 30px;
+}
+#PRIXERO{
+    border-color: rgba(80, 46, 1, 0.808);
+    border-radius: 4px;
+    border-width: 2px;
+    width: 250px;
+    height: 30px;
+}
+#mySelect{
+    border-color: rgba(80, 46, 1, 0.808);
+    border-radius: 4px;
+    border-width: 2px;
+    width: 250px;
+    height: 30px;
+}
+#DATEE{
+    border-color: rgba(80, 46, 1, 0.808);
+    border-radius: 4px;
+    border-width: 2px;
+    width: 250px;
+    height: 30px;
+    
+}
+
+
+#myTable{
+    position: absolute;
+    width: 70%;
+    background-color: rgb(199 170 136);
+   
+    
+      
+}
+#myTable td{
+    color: rgba(80, 46, 1, 0.808);
+}
+
+/*___________gridControl_____________*/
+
+.formGrid2 {
+    margin: 0% 0% 0% 0%;
+}
+.formGrid1 {
+    margin: 0% 0% 0% 0%;
+}
+
+

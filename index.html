@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+  <h1>Book Information</h1>
+  <main class="container">
+ <div class="formGrid1">
+<form onsubmit="return validation()" action="validi" method="post" id="myForm">
+
+<div id="body50">
+<div class="RAT">
    
-<form action="validi" method="post" id="myForm">
-
-
-   <label for="username"> Titre  </label>
+   <label for="username"> Titre  :</label><br>
    <input type="text" name="username" id="username">
    <span id="NOMERO"></span>
    
@@ -20,25 +25,25 @@
    <br>
 
 
-    <label for="username">Auteur  </label>
+    <label for="username">Auteur  :</label><br>
     <input type="text" name="username" id="PRENO">
     <span id="PRENOMERO"></span>
-   
+  
     <br>
     <br>
     <br>
 
  
     
-    <label for="username">Prix  </label>
+    <label for="username">Prix  :</label><br>
     <input  type="text" name="username" id="PRIXERO">
     <span id="PRIERO"></span>
-    
+     
     <br>
     <br>
     <br>
 
-    <label for="username">Date  </label>
+    <label for="username">Date  :</label><br>
     <input type="date" name="username" id="DATEE">
     <span id="DATEERO"></span>
 
@@ -47,81 +52,118 @@
     <br>
 
     <select id="mySelect" >
-        <option value="">Sélectionez un longue</option>
+        <option value="">Sélectionez un langue</option>
         <option value="Français">Français</option>
         <option value="Arabe">Arabe</option>
         <option value="Anglais">Anglais</option>
-        <span id="Mlongue"></span>
+        
       </select>
+      <span id="Mlongue"></span>
 
       <br>
       <br>
       <br>
 
   
-     <span>Roman <input class="radiobtn" name="radiobtn" type="radio"></span>
-     <span>Essai <input class="radiobtn" name="radiobtn" type="radio"></span>
-     <span>Bande-Dessinée <input class="radiobtn" name="radiobtn" type="radio"></span>
+     <span> <input value="Roman" class="radiobtn" name="radiobtn" type="radio">Roman</span>
+     <span> <input value="Essai" class="radiobtn" name="radiobtn" type="radio">Essai</span>
+     <span> <input value="Bande-Dessinée" class="radiobtn" name="radiobtn" type="radio">Bande-Dessinée</span>
       <span id="TYPEERO"></span>
-
+  
     <br>
     <br>
     <br>
 
-      <button type="submit" onclick="btn()">click</button>
+      <button type="submit" onclick="btn()">Submit</button>
+
+  
+      <br>
+      <br>
+      <br>
+  </div>
+</div>
+
+
+
 
 
  </form>
+</div>
+ <div class="formGrid2">
+  <table id="myTable" border="1">
+    <tr>
+     <td> Titre </td>
+     <td>Auteur</td>
+     <td> Prix </td>
+     <td> Date </td>
+     <td> langue </td>
+     <td> books </td>
+   </tr>
 
+  </table>
+ </div>
+</main>
 
 
 
 <script>
   
 
-
- var myForm = document.getElementById('myForm')
-         myForm.addEventListener('submit', function(event){
-            event.preventDefault();
-
-            var myInput = document.getElementById('username');
+  var myInput = document.getElementById('username');
             var mypreno = document.getElementById('PRENO');
             var mydate = document.getElementById('DATEE');
             var myprix = document.getElementById('PRIXERO');
             var mylongue = document.getElementById('mySelect');
             var myType = document.getElementsByClassName('radiobtn');
             var Type_error = document.getElementById('TYPEERO');
+            var mytabl = document.getElementById('myTable');
+ var myForm = document.getElementById('myForm')
+         myForm.addEventListener('submit', function(event){
+            event.preventDefault();
+
+            
+            var form_valid = true
 
             var myRegex = /^[a-zA-Z-\s]+$/;
             var myRNUM = /^[0-9-\s]+$/;
 
+        
+
+
+
 
             
-                 /** titre **/
+              ///////////////////////   /** titre **/  ///////////////////
+
+
 
       
-        if (myInput.value.trim() == "" || (myInput.value.length>5)){
+        if (myInput.value.trim() == "" || (myInput.value.length>30)){
             var NOMER = document.getElementById('NOMERO');
             NOMER.innerHTML = 'le champs est requis.';
             NOMER.style.color = 'red';
-              event.preventDefault();
+            form_valid = false;
+             
+
         
         }
         else if (myRegex.test(myInput.value) == false ) {
             var NOMER = document.getElementById('NOMERO');
-            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.innerHTML = '✖';
             NOMER.style.color = 'red';
-              event.preventDefault()
+            form_valid = false;
+
+            
         }
         else{
             var NOMER = document.getElementById('NOMERO');
-            NOMER.innerHTML = 'good.';
+            NOMER.innerHTML = '✔';
             NOMER.style.color = 'green';
         }
 
 
 
-              /** Auteur **/
+           ///////////////////////   / ** Auteur ** /   /////////////////////
 
 
 
@@ -129,74 +171,83 @@
             var NOMER = document.getElementById('PRENOMERO');
             NOMER.innerHTML = 'le champs est requis.';
             NOMER.style.color = 'red';
-              event.preventDefault();
+            form_valid = false;
+           
         }else if (myRegex.test(mypreno.value) == false ) {
             var NOMER = document.getElementById('PRENOMERO');
-            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.innerHTML = '✖';
             NOMER.style.color = 'red';
-            event.preventDefault()
+            form_valid = false;
+         
         }
         else{
             var NOMER = document.getElementById('PRENOMERO');
-            NOMER.innerHTML = 'good.';
+            NOMER.innerHTML = '✔';
             NOMER.style.color = 'green';
         }
 
 
 
-
-
         
 
-                    /** prix **/
+        ////////////////////    /** prix **/   ///////////////////////
 
          
         if (isNaN(myprix.value)) {
             var NOMER = document.getElementById('PRIERO');
-            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.innerHTML = '✖';
             NOMER.style.color = 'red';
-              event.preventDefault()
+            form_valid = false;
+
+              
         } 
         
         if (!isNaN(myprix.value)) {
             var NOMER = document.getElementById('PRIERO');
-            NOMER.innerHTML = 'good.';
+            NOMER.innerHTML = '✔';
             NOMER.style.color = 'green';
         }
         if (myprix.value.trim() == ""){
             var NOMER = document.getElementById('PRIERO');
             NOMER.innerHTML = 'le champs est requis.';
             NOMER.style.color = 'red';
-              event.preventDefault();
+            form_valid = false;
+
         }
     
-
      
 
     
-                /** date **/
+            //////////////////   /** date **/  ////////////////////
+
+
 
 
     if (mydate.value.trim() == "" ){
             var NOMER = document.getElementById('DATEERO');
             NOMER.innerHTML = 'le champs  est requis.';
             NOMER.style.color = 'red';
-              event.preventDefault();
+            form_valid = false;
+
+             
         }else if (myRNUM.test(mydate.value) == false ) {
             var NOMER = document.getElementById('DATEERO');
-            NOMER.innerHTML = 'le nome doit comporter des lettres, des tirets uniquements.';
+            NOMER.innerHTML = '✖';
             NOMER.style.color = 'red';
-              event.preventDefault()
+            form_valid = false;
+
         }
         else{
             var NOMER = document.getElementById('DATEERO');
-            NOMER.innerHTML = 'good.';
+            NOMER.innerHTML = '✔.';
             NOMER.style.color = 'green';
         }
 
                         
 
-                         /** lange **/
+          /////////////////////  /** lange **/  //////////////////
+
+
 
 
             if(mylongue.value == ""){
@@ -204,12 +255,14 @@
               mylongue.style.borderColor = "red"
               mylongue.nextElementSibling.style.color = "red";
               mylongue.nextElementSibling.innerHTML = "please choose a language"
+              form_valid = false;
+
             }
             else{
               var NOMER = document.getElementById('Mlongue');
               mylongue.style.borderColor = "green"
               mylongue.nextElementSibling.style.color = "green";
-              mylongue.nextElementSibling.innerHTML = "ok!"
+              mylongue.nextElementSibling.innerHTML = "✔"
             }
 
 
@@ -217,31 +270,55 @@
 
 
 
+             ////////////////////  /** type **/  /////////////////////////
 
 
-
-
-
-                         /** type **/
 
 
                if (!(myType[0].checked || myType[1].checked || myType[2].checked)) {
                 var NOMER = document.getElementById('radiobtn');
-                 Type_error.innerHTML = 'wadir shi wahda';
+                form_valid = false;
+                 Type_error.innerHTML = '✖';
                  Type_error.style.color = 'red';
                }
                 
                  else{
                   var NOMER = document.getElementById('radiobtn');
-                  Type_error.innerHTML = 'good.';
+                  Type_error.innerHTML = '✔';
                   Type_error.style.color = 'green';
 
                  }
 
 
                
+          ///////////////////  /** table **/  ////////////////////////
         
-  
+                if(form_valid) {
+               var NEWROW = mytabl.insertRow(-1);
+                var cad1 = NEWROW.insertCell(0);
+                var cad2 = NEWROW.insertCell(1);
+                var cad3 = NEWROW.insertCell(2);
+                var cad4 = NEWROW.insertCell(3);
+                var cad5 = NEWROW.insertCell(4);
+                var cad6 = NEWROW.insertCell(5);
+                
+                var cadtype='';
+                for (i = 0;i<myType.length;i++)
+                {
+                      if(myType[i].checked)
+                      {
+                        cadtype = myType[i].value;
+                      }
+                 }
+                
+                cad1.innerHTML = myInput.value;
+                cad2.innerHTML = mypreno.value;
+                cad3.innerHTML = myprix.value;
+                cad4.innerHTML = mydate.value;   
+                cad5.innerHTML = mylongue.options[mylongue.selectedIndex].value;
+                cad6.innerHTML = cadtype;
+
+            }
 
 
    })
