@@ -8,13 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-  <h1>Book Information</h1>
+  <h1>Le monde du bibliothéque</h1>
   <main class="container">
  <div class="formGrid1">
 <form onsubmit="return validation()" action="validi" method="post" id="myForm">
 
 <div id="body50">
-<div class="RAT">
+<div class="FORMTAB">
    
    <label for="username"> Titre  :</label><br>
    <input type="text" name="username" id="username">
@@ -97,7 +97,9 @@
      <td> Prix </td>
      <td> Date </td>
      <td> langue </td>
-     <td> books </td>
+     <td> Type </td>
+     <td> Options </td>
+    
    </tr>
 
   </table>
@@ -109,7 +111,7 @@
 <script>
   
 
-  var myInput = document.getElementById('username');
+            var myInput = document.getElementById('username');
             var mypreno = document.getElementById('PRENO');
             var mydate = document.getElementById('DATEE');
             var myprix = document.getElementById('PRIXERO');
@@ -117,6 +119,8 @@
             var myType = document.getElementsByClassName('radiobtn');
             var Type_error = document.getElementById('TYPEERO');
             var mytabl = document.getElementById('myTable');
+
+
  var myForm = document.getElementById('myForm')
          myForm.addEventListener('submit', function(event){
             event.preventDefault();
@@ -140,7 +144,7 @@
       
         if (myInput.value.trim() == "" || (myInput.value.length>30)){
             var NOMER = document.getElementById('NOMERO');
-            NOMER.innerHTML = 'le champs est requis.';
+            NOMER.innerHTML = '✖ Requis.';
             NOMER.style.color = 'red';
             form_valid = false;
              
@@ -169,7 +173,7 @@
 
     if (mypreno.value.trim() == "" ){
             var NOMER = document.getElementById('PRENOMERO');
-            NOMER.innerHTML = 'le champs est requis.';
+            NOMER.innerHTML = '✖ Requis.';
             NOMER.style.color = 'red';
             form_valid = false;
            
@@ -209,7 +213,7 @@
         }
         if (myprix.value.trim() == ""){
             var NOMER = document.getElementById('PRIERO');
-            NOMER.innerHTML = 'le champs est requis.';
+            NOMER.innerHTML = '✖ Requis.';
             NOMER.style.color = 'red';
             form_valid = false;
 
@@ -225,7 +229,7 @@
 
     if (mydate.value.trim() == "" ){
             var NOMER = document.getElementById('DATEERO');
-            NOMER.innerHTML = 'le champs  est requis.';
+            NOMER.innerHTML = '✖ Requis.';
             NOMER.style.color = 'red';
             form_valid = false;
 
@@ -254,7 +258,7 @@
               var NOMER = document.getElementById('Mlongue');
               mylongue.style.borderColor = "red"
               mylongue.nextElementSibling.style.color = "red";
-              mylongue.nextElementSibling.innerHTML = "please choose a language"
+              mylongue.nextElementSibling.innerHTML = "✖ Requis."
               form_valid = false;
 
             }
@@ -301,6 +305,8 @@
                 var cad4 = NEWROW.insertCell(3);
                 var cad5 = NEWROW.insertCell(4);
                 var cad6 = NEWROW.insertCell(5);
+                var cad7 = NEWROW.insertCell(6);
+               
                 
                 var cadtype='';
                 for (i = 0;i<myType.length;i++)
@@ -317,12 +323,59 @@
                 cad4.innerHTML = mydate.value;   
                 cad5.innerHTML = mylongue.options[mylongue.selectedIndex].value;
                 cad6.innerHTML = cadtype;
-
+                cad7.innerHTML = "<input type='submit' onclick='modifier(this)' value='modifier' class='btn'>" + "<input type='submit' value='supprimer' onclick='supprimer(this)' class='btn'>"
             }
-
-
    })
 
+  function supprimer(btn){
+    var i = btn.parentNode.parentNode.rowIndex;
+    mytabl.deleteRow(i);
+  }
+
+  function modifier(r) {
+     var table=document.getElementsByTagName("table")[0];
+
+     var type=document.getElementsByName("radiobtn");
+var i = r.parentNode.parentNode.rowIndex;
+var R=table.rows[i];
+if(r.value=="modifier"  ){
+    document.getElementById("username").value = R.cells[0].innerHTML;
+    document.getElementById("PRENO").value= R.cells[1].innerHTML;
+    document.getElementById("PRIXERO").value=R.cells[2].innerHTML;
+    document.getElementById("DATEE").value= R.cells[3].innerHTML;
+    document.getElementById("mySelect").value= R.cells[4].innerHTML;
+    
+    for(i=0;i<type.length;i++)
+    {
+        if(R.cells[5].innerHTML==type[i].value)
+        {
+            type[i].checked=true;
+        }
+    }
+    r.value="save"
+    document.getElementById('btn').setAttribute("disabled","true");
+} 
+
+else{
+    R.cells[0].innerHTML = document.getElementById("username").value;
+    R.cells[1].innerHTML =  document.getElementById("PRENO").value;
+    R.cells[2].innerHTML=  document.getElementById("PRIXERO").value;
+    R.cells[3].innerHTML =   document.getElementById("DATEE").value;
+    R.cells[4].innerHTML =  document.getElementById("mySelect").value;
+   
+    for(i=0;i<type.length;i++)
+    {
+        if(type[i].checked==true)
+        {
+            R.cells[5].innerHTML=type[i].value;
+        }
+    } 
+    r.value="modifier"
+    document.getElementById('btn').removeAttribute("disabled");
+    resetForm();
+}
+     
+}
 
 
 </script>

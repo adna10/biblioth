@@ -19,17 +19,16 @@ h1{
     background-image: url(IMG.jpg);
    
     margin: 60px;
-    margin-left: 260px;
+    margin-left: 252px;
     width: 570px;
      height: auto;
      border-radius: 10px;
-     border-color: cyan;
      border-width: 4px;
     
     
     
 }
-.RAT{
+.FORMTAB{
     padding-left: 5%;
     padding-top:12%;
      flex-direction: column;
@@ -37,10 +36,12 @@ h1{
      align-items: center;
 }
 
-.RAT button{
+.FORMTAB button{
     width: 250px;
     height: 30px;
-    MARGIN-LEFT: 17%;
+    MARGIN-LEFT: 21%;
+    border-radius: 10px;
+    border-width: 4px;
 }
 
 
@@ -91,6 +92,7 @@ h1{
     position: absolute;
     width: 70%;
     background-color: rgb(199 170 136);
+    margin-left:8%;
    
     
       
@@ -99,13 +101,5 @@ h1{
     color: rgba(80, 46, 1, 0.808);
 }
 
-/*___________gridControl_____________*/
-
-.formGrid2 {
-    margin: 0% 0% 0% 0%;
-}
-.formGrid1 {
-    margin: 0% 0% 0% 0%;
-}
 
 
