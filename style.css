@@ -3,7 +3,6 @@
     padding: 0px;
 }
 body{
-   
     padding: 0px;
     background-image: url(building.jpg);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -91,6 +90,7 @@ h1{
 #myTable{
     position: absolute;
     width: 70%;
+  
     background-color: rgb(199 170 136);
     margin-left:8%;
    
@@ -99,6 +99,14 @@ h1{
 }
 #myTable td{
     color: rgba(80, 46, 1, 0.808);
+      height: 25px;
+      
+      
+}
+
+.footer{
+    height: 200px;
+ 
 }
 
 
